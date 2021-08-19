@@ -62,7 +62,6 @@ const FoodAdd = () => {
               onChange={e => {setNewExp(e.target.value)}}
               id="outlined-basic"
               type="date"
-              // label="exp"
               variant="outlined"
             >          
             </TextField>
