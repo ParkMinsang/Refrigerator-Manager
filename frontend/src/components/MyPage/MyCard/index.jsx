@@ -17,15 +17,15 @@ const useStyles = makeStyles({
     display: 'flex',
     padding: 15,
     margin: 15,
+    minHeight: 260,
   },
   cardDetails: {
     flex: 1,
   },
   cardMedia: {
-    width: 160,
+    width: 250,
   },
 });
-const cards = [1,2,3,4,5,6,7,8,9]
 
 const MyPageCard = () => {
   let history = useHistory();
@@ -44,33 +44,13 @@ const MyPageCard = () => {
       console.log(res.data.likes);
       setMylikes(res.data.likes);
     })
-    // .then(()=>{
-    //   recipeApi();
-    //   console.log(likedRecipe,'axios-liked')
-    // })
     .catch(err=>{
       console.log(err.response);
     })
   }, [])
 
-  // const recipeApi = () => {
-  //   // console.log('here')
-  //   console.log(mypage,'mypage')
-  //   for (let i=0; i<mypage.length; i++) {
-  //     axios.get(`/recipe/${mypage[i].recipe_info_id}`)
-  //     .then(res => {
-  //       console.log(res.data, 'axios');
-  //       console.log(likedRecipe,'likedRecipe')
-  //       setLikedRecipe([...likedRecipe, res.data]);
-  //     })
-  //     .catch(err => {
-  //       console.log(err.response);
-  //     })
-  //   }
-  // };
   return (
-      // <button onClick={()=>{console.log(mylikes)}}>콘솔</button>
-    <Grid item xs={12} md={6}>
+    <Grid item xs={12} md={7}>
       {mylikes.map((like) => (
         <Grid key={like}>
         <CardActionArea component="a"
@@ -82,22 +62,22 @@ const MyPageCard = () => {
         <Card className={classes.card}>
           <div className={classes.cardDetails}>
             <CardContent>
-              <Typography component="h2" variant="h5">
+              <Typography component="h2" variant="h3">
                 {like.title}
               </Typography>
-              <Typography variant="subtitle1" color="textSecondary">
+              <Typography variant="h4" color="textSecondary">
                 필요한 재료
               </Typography>
-              <Typography variant="subtitle1" paragraph>
+              <Typography variant="h5" paragraph>
                 {like.ingredients.map((ingredients)=>(
                   <span>
                     {ingredients.ingredient_name} ,
                   </span>
                       ))}
               </Typography>
-              {/* <Typography variant="subtitle1" color="primary">
+              <Typography variant="h5" color="primary">
                 레시피로 이동
-              </Typography> */}
+              </Typography>
             </CardContent>
           </div>
           <Hidden xsDown>

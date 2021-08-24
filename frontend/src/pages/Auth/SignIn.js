@@ -65,10 +65,6 @@ export default function SignIn() {
   let history = useHistory();
 
   const classes = useStyles();
-  // axios 로그인 테슽
-  // const userRequest = axios.post('/auth/login')
-  //   .then(res => {res.data})
-  //   .catch(err=> {console.log(err)})
   const [user_id, setUser_id] = useState('')
   const [password, setPassword] = useState('')
   
@@ -106,7 +102,7 @@ export default function SignIn() {
                   history.push('/')
                 })
                 .catch(err => {
-                  if (err.response.data == 'login failed') {
+                  if (err.response.data === 'login failed') {
                     alert('아이디나 비밀번호를 확인해주세요.')
                     // 아이디 없을 때,
                     // 아이디나 비밀번호가 틀렸을 때,
@@ -140,6 +136,7 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              color="primary"
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -154,10 +151,15 @@ export default function SignIn() {
             >
               Sign In
             </Button>
-            <Grid container>
-              <Grid item>                 
-                <Link href="/SignUp" variant="Signup">     {/* Sign up 으로 보내주는거 추가 */}
+            <Grid container xs={12}>
+              <Grid item xs={9}>                 
+                <Link href="/signup" variant="Signup">   
                   {"회원이 아니신가요?"}
+                </Link>
+              </Grid>
+              <Grid item xs={3}>
+                <Link href="/home" variant="Signup">
+                  {"Home으로"}
                 </Link>
               </Grid>
             </Grid>

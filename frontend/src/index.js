@@ -12,22 +12,24 @@ const theme = createMuiTheme({
     fontFamily: "fontPrimary",
     h4: {
       fontFamily: "fontSecondary"
-    }
+    },
+
+  },
+  pass: {
+    fontFamily: "Monaco"
   },
   palette: {
     primary: {
       main: '#ffb74d',
-      // main : '#ff9800',
     },
     secondary: {
       main: '#808080'
-      // main: '#a9a9a9'
     },
   },
-  // backgroundColor: '#acacac'
 });
 
 ReactDOM.render(
+  
   <React.StrictMode>
     <MuiThemeProvider theme={theme}>
       <App />

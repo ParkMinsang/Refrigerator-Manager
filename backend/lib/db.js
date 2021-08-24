@@ -7,7 +7,6 @@ const db = mysql.createConnection({ //인자로 객체 전달
     host:process.env.DB_HOST,
     user:process.env.DB_USERNAME,
     password:process.env.DB_PASSWORD,
-    // password:'fldclfqorqjsgh',
     database:process.env.DB_DATABASE,  
     dateStrings : 'date'
 });

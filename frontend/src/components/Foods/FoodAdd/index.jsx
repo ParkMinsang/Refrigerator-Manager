@@ -1,26 +1,16 @@
 import React, {useContext} from 'react';
 import { CommonContext } from '../../../context/CommonContext';
 import {
-  Box,
-  Grid,
-  Link,
-  Checkbox,
-  FormControlLabel,
-  TextField, CssBaseline,
+  TextField,
   Button,
-  Avatar,
   Typography,
   Container,
-  makeStyles,
-  Divider,
-  Dialog,
-  Title,
   DialogTitle,
 } from '@material-ui/core';
 import axios from 'axios';
 
 const FoodAdd = () => {
-  const {openFoodAddForm, setopenFoodAddForm, rows, setRows} = useContext(CommonContext);
+  const {openFoodAddForm, setopenFoodAddForm} = useContext(CommonContext);
   const {newFood, setNewFood, newExp, setNewExp} = useContext(CommonContext);
   const {setOpenFoodAdd} = useContext(CommonContext);
 
@@ -36,17 +26,10 @@ const FoodAdd = () => {
     margin: 10,
   };
 
-  // createData_Dummy
-  const createData = (id, name, date) => {
-    return { id, name, date };
-  }
   // addFood
   const addFood = (e) => {
     e.preventDefault();
-    rows.push(createData(rows.length, newFood, newExp))
-    console.log(rows, 'addFood')
     setopenFoodAddForm(false);
-    // new (mypage)
     setOpenFoodAdd(false);
     let body = {
       ingredient_name : newFood,
@@ -61,37 +44,39 @@ const FoodAdd = () => {
       })
   }
   return (
-    <Container open={openFoodAddForm} onClose={ onClose }>
+    <Container open={openFoodAddForm} onClose={ onClose } style={{height:'100vh', margin: '0px 0px -23px 0px', padding:70, marginLeft:'15%'}}>
       <DialogTitle>
         Add Food
       </DialogTitle>
-      <form action="" onSubmit={addFood}>
-        <TextField 
-          onChange={ e => {setNewFood(e.target.value)}}
-          style={form}
-          id="outlined-basic"
-          label="name"
-          variant="outlined"
-        >          
-        </TextField>
-        <TextField 
-          style={form}
-          onChange={e => {setNewExp(e.target.value)}}
-          id="outlined-basic"
-          type="date"
-          // label="exp"
-          variant="outlined"
-          // **기본값을 5로 주고, onChange가 아니더라도 ExpItem이 입력이 되도록
-          // defaultValue="5"
-        >          
-        </TextField>
-        <Button type='submit'>
-          등록
-        </Button>
-        <Button onClick={()=>{setOpenFoodAdd(false);}}>
-          취소
-        </Button>
-      </form>
+        <form action="" onSubmit={addFood} style={{display:'flex', justifyContent:'center'}}>
+            <TextField 
+              onChange={ e => {setNewFood(e.target.value)}}
+              style={form}
+              id="outlined-basic"
+              label="name"
+              variant="outlined"
+            >          
+            </TextField>
+            <TextField 
+              style={form}
+              onChange={e => {setNewExp(e.target.value)}}
+              id="outlined-basic"
+              type="date"
+              // label="exp"
+              variant="outlined"
+            >          
+            </TextField>
+            <Button type='submit' variant="outlined">
+              <Typography variant="h5">
+                등록
+              </Typography>
+            </Button>
+            <Button onClick={()=>{setOpenFoodAdd(false);}} variant="outlined">
+              <Typography variant="h5">
+                취소
+              </Typography>
+            </Button>
+        </form>      
     </Container>
   );
 };

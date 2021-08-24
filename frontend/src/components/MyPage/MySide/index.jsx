@@ -13,13 +13,7 @@ import axios from 'axios';
 
 
 const useStyles = makeStyles((theme) => ({
-  ComponentsGrid: {
-    // margin: 20,
-    // padding: 20,
-    // backgroundColor: theme.palette.primary.main,
-  },
   sidebarAboutBox: {
-    // padding: theme.spacing(1),
     width: "90%",
     padding: 15,
   },
@@ -33,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(1),
     paddingLeft: theme.spacing(1),
-    // backgroundColor: 'white',
     backgroundColor: theme.palette.primary.main,
     margin: 20,
   },
@@ -46,15 +39,17 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center"
   },
   ingredientComp: {
-    margin: 10,
-    height: 35,
+    margin: 15,
+    height: 65,
     flexGrow: 1,
     textAlign: 'center',
-    align:'justify'
+    align: 'justify',
+    fontSize : 30,
   },
   buttonComp: {
     margin:5,
-    padding:1,
+    padding: 1,
+    fontSize: 30,
   },
   sidenavComp: {
     overflow: 'hidden',
@@ -71,17 +66,13 @@ const MyBar = () => {
   const classes = useStyles();
   const {ingredients, setIngredients, setOpenFoodAdd} = useContext(CommonContext);
   const [editBtn, setEditBtn] = useState('편집');
-  // const [openFoodAdd, setOpenFoodAdd] = useState(false);
   const moment = require('moment');
   const today = ((moment()).format('YYYYMMDD')).substr(0, 10);
 
   useEffect(()=>{
     ingredientApi();
   },[])
-  // 유통기한 지난 라벨 색변경
-  // const expSty = {
-  //   background : '#B7373B',
-  // };
+
   // 재료 DB GET
   const ingredientApi =()=>{
     axios.get('/user/myingredients')
@@ -117,15 +108,16 @@ const MyBar = () => {
         console.log(res, 'iot-res')
       })
   };
+
   return (
     <Grid item xs={12} md={4} className={classes.ComponentsGrid}>
       <AppBar position='sticky' className={classes.toolbar}>
-        {/* <ToolBar position='sticky' className={classes.toolbar}> */}
         <Paper elevation={0} className={classes.sidebarAboutBox}>
           <div className={classes.sidenavComp}>
-            <Typography variant="h6" gutterBottom className={classes.floatLeft}>
+            <Typography variant="h4" gutterBottom className={classes.floatLeft}>
               보유중인 재료
             </Typography>
+            {/* 버튼 */}
             {editBtn === '추가' ?
               <div className={classes.floatRight}>
                 <Button onClick={()=>{setOpenFoodAdd(true)}} variant="outlined" className={classes.buttonComp}>
@@ -142,39 +134,53 @@ const MyBar = () => {
                 </Button>
               </div>
             }
+            {/* 색깔 */}
           </div>
             {editBtn === '추가' ?
               <div>
               {ingredients.map((ingredient) => (
-                  <Paper className={classes.ingredeintRoot}>
+                  <Paper className={classes.ingredeintRoot} color='error'>
+                    {
+                    Number((moment(ingredient.expiration_date).format('YYYYMMDD')).substr(0,10))<Number(today)+3
+                    ?
+                    <Typography className={classes.ingredientComp} color='error'>
+                      <Grid>
+                        {ingredient.ingredient_name} {ingredient.expiration_date}
+                      <Button onClick={()=>{delIngredient(ingredient)}} color="secondary">
+                        삭제
+                      </Button>
+                      </Grid>
+                    </Typography>
+                    :
                     <Typography className={classes.ingredientComp}>
-                      {ingredient.ingredient_name} | 
-                      {ingredient.expiration_date} | 
+                      {ingredient.ingredient_name} {ingredient.expiration_date}  
                       <Button onClick={()=>{delIngredient(ingredient)}} color="secondary">
                         삭제
                       </Button>
                     </Typography>
+                    }
+                    
                   </Paper>
                 ))}
               </div>
             :
               <div>
                 {ingredients.map((ingredient)=>(
-                  <Paper className={classes.ingredeintRoot}>
-                  {/* <Paper>
+                  <Paper className={classes.ingredeintRoot} >
+                  {/* <Paper> */}
                     {
-                    Number((moment(ingredient.expiration_date).format('YYYYMMDD')).substr(0,10))<Number(today)
+                    Number((moment(ingredient.expiration_date).format('YYYYMMDD')).substr(0,10))<Number(today)+3
                     ?
-                    <Typography className={classes.ingredientComp} style={{background : '#B7373B',}}>
-                      {ingredient.ingredient_name} |
-                      {ingredient.expiration_date} 날짜오바댔을때
+                    <Typography className={classes.ingredientComp} color='error'>
+                      <Grid>
+                        {ingredient.ingredient_name} {ingredient.expiration_date}
+                      </Grid>
                     </Typography>
-                    : */}
+                    :
                     <Typography className={classes.ingredientComp}>
-                      {ingredient.ingredient_name} |
-                      {ingredient.expiration_date} | 
+                      {ingredient.ingredient_name} {ingredient.expiration_date} 
                     </Typography>
-                    {/* } */}
+                    }
                   </Paper>
                 ))}
               </div>
