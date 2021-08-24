@@ -4,15 +4,15 @@
 
 ## :bulb: 목차
 
-- [프로젝트 소개](#프로젝트-소개)   
-- [텍스트 ... ](#프로젝트-소개)   
-- [프로젝트 명세](#프로젝트-명세)
-  - [배포 환경](#배포-환경)
-  - [개발 환경](#개발-환경)
-  - [Design Resources](#design-resources)
-  - [핵심 라이브러리](#핵심-라이브러리)
-  - [Ganttchart](#Gantt-Chart)
-  - [진행과정](#진행과정)
+-   [프로젝트 소개](#프로젝트-소개)
+-   [텍스트 ... ](#프로젝트-소개)
+-   [프로젝트 명세](#프로젝트-명세)
+    -   [배포 환경](#배포-환경)
+    -   [개발 환경](#개발-환경)
+    -   [Design Resources](#design-resources)
+    -   [핵심 라이브러리](#핵심-라이브러리)
+    -   [Ganttchart](#Gantt-Chart)
+    -   [진행과정](#진행과정)
 
 <br>
 
@@ -22,8 +22,8 @@
 
 #### 2030 1인가구를 위한 냉장고 관리 서비스
 
-- 팀명: 7링바이브
-- 트랙 : IoT
+-   팀명: 7링바이브
+-   트랙 : IoT
 
 ### :soccer: 목표
 
@@ -34,11 +34,11 @@
 
 ![페르소나](README.assets/페르소나.png)
 
-- 요리에 관심이 있고 레시피 추천이 필요한 사람
-- 요리에 관심이 있지만 재료관리를 잘 못하는 사람
-- 요리에 크게 관심이 없어 냉동 식품을 쌓아두고 먹는 사람
+-   요리에 관심이 있고 레시피 추천이 필요한 사람
+-   요리에 관심이 있지만 재료관리를 잘 못하는 사람
+-   요리에 크게 관심이 없어 냉동 식품을 쌓아두고 먹는 사람
 
- 여러 케이스의 사람들을 모두 만족시켜주기 위한 기능들을 구현하고, 작성한 목업에 따라 웹페이지를 완성한 후, 이를 라즈베리파이의 터치스크린을 통하여 보여주는 흐름을 구상하였습니다.
+여러 케이스의 사람들을 모두 만족시켜주기 위한 기능들을 구현하고, 작성한 목업에 따라 웹페이지를 완성한 후, 이를 라즈베리파이의 터치스크린을 통하여 보여주는 흐름을 구상하였습니다.
 
 ---
 
@@ -54,71 +54,65 @@ React, Node.js, Django, DB(Mysql), 아두이노, 라즈베리파이, Whimsical, 
 
 ### :triangular_ruler: 시퀀스 다이어그램
 
-
-
 ---
 
 ## :notebook_with_decorative_cover: 프로젝트 명세
 
 ### :airplane: 배포 환경
 
-- __URL__ : 
-- __배포 여부__ : O / X
-- __접속 가능__ : 접속 가능 / 수정 중
-- __HTTPS 적용__ : O / X
-- __PORT__ : // 3rd Party에서 사용하는 포트가 있다면 기입해주세요. <- 기입 후 해당 주석 삭제
-  <br>
+-   **URL** :
+-   **배포 여부** : O
+-   **접속 가능** : 접속 불가
+-   **HTTPS 적용** : X
+    <br>
 
 ### :house: 개발 환경
 
 #### Front-end [Link](https://lab.ssafy.com/s05-webmobile3-sub3/S05P13B107/-/blob/master/frontend/README.md)
 
-- __Framework__ : React  (Ver : 4.0.3)
-- __지원 환경__ : Web / IoT(라즈베리 파이)
-- __담당자__ : 차성민, 엄재식
-  <br>
+-   **Framework** : React (Ver : 4.0.3)
+-   **지원 환경** : Web / IoT(라즈베리 파이)
+-   **담당자** : 차성민, 엄재식
+    <br>
 
 #### Back-end [Link](https://lab.ssafy.com/s05-webmobile3-sub3/S05P13B107/-/tree/master/backend)
 
-- __Framework__ : Node.js, Express / Django
-- __Database__ : Mysql
-- __담당자__ : 박민상, 윤소영, 진지연
-  <br>
+-   **Framework** : Node.js, Express / Django
+-   **Database** : Mysql
+-   **담당자** : 박민상, 윤소영, 진지연
+    <br>
 
 #### Design
 
-- Material-UI 및 Bootstrap 활용
-- __담당자__ : 차성민, 엄재식
-  <br>
+-   Material-UI 및 Bootstrap 활용
+-   **담당자** : 차성민, 엄재식
+    <br>
 
-__자체 제작 산출물__ (필요시 이미지 또는 설명 첨부)
+**자체 제작 산출물** (필요시 이미지 또는 설명 첨부)
 
-- LOGO
-- CardView
-- Button
-- Calendar
-  <br>
+-   LOGO
+-   CardView
+-   Button
+-   Calendar
+    <br>
 
 ### :orange_book: 핵심 라이브러리
 
-기본 제공하는 라이브러리 외 핵심 기능 구현에 사용한 라이브러리가 있다면 작성해주세요.   
+기본 제공하는 라이브러리 외 핵심 기능 구현에 사용한 라이브러리가 있다면 작성해주세요.  
 예시 ) VR/AR 라이브러리, 애니메이션 라이브러리, 텍스트/사진/동영상 지원, 편집 라이브러리 등
 
-- __Material - UI __
-  - __링크__ : https://developers.google.com/ar
-  - __소개__ : 
-  - __사용 기능__ : 디자인 컴포넌트 제공
-  - __담당자__ : 차성민, 엄재식
-- __Bootstrap __
-  - __링크__ : https://developers.google.com/ar
-  - __소개__ : 
-  - __사용 기능__ : 디자인 컴포넌트 제공
-  - __담당자__ : 차성민, 엄재식
+-   **Material - UI **
+    -   **링크** : https://developers.google.com/ar
+    -   **소개** :
+    -   **사용 기능** : 디자인 컴포넌트 제공
+    -   **담당자** : 차성민, 엄재식
+-   **Bootstrap **
+    -   **링크** : https://developers.google.com/ar
+    -   **소개** :
+    -   **사용 기능** : 디자인 컴포넌트 제공
+    -   **담당자** : 차성민, 엄재식
 
-
-
-
-## :chart_with_upwards_trend: Gantt Chart 
+## :chart_with_upwards_trend: Gantt Chart
 
 ```mermaid
 gantt
@@ -132,9 +126,9 @@ gantt
     기능 목록 상세 도출			:done, 07-13, 4d
     화면 기획				  :crit, active, 07-14, 10d
     개발 환경 구성             :done, 07-12, 5d
-	
+
 	section Frontend
-    사전 공부 및 예제 실습 :active, 07-15, 11d    
+    사전 공부 및 예제 실습 :active, 07-15, 11d
     백단과 폴더 트리구조 동기화  :crit, active, 07-24, 2d
     프로토타입 페이지 제작 및 서버와의 연결 테스트 :active, 07-27, 3d
     자체 컴포넌트 구상 및 구현: crit, active, 07-27, 7d
@@ -158,7 +152,7 @@ gantt
     - 타이머 기능 추가 : 08-14, 1d
     디자인작업 및 최종 마무리 : 08-08, 7d
 
-    
+
     section Backend
     사전 공부 및 예제 실습 : done, 07-07, 13d
     DB 모델링 및 데이터 수집 : done, 07-19, 7d
@@ -187,56 +181,44 @@ gantt
     section Ucc제작 및 발표준비
     발표 자료 :crit, active, rtc1, 08-16, 4d
     Ucc 제작 :crit, active,08-16, 4d
-   
 
-    section QA 및 
+
+    section QA 및
     QA 및 버그 찾기               :07-20, 31d
-    
+
     %%section 기타
     %%UCC제작 :11-23, 3d
     %%발표준비 :11-26, 2d
 ```
 
-##  :rainbow: 결과물
+## :rainbow: 결과물
 
 > #### 결과물 간략 요약 페이지 예시 사진입니다.
 >
-> ### :star:  회원페이지
+> ### :star: 회원페이지
 >
 > ![signin](README.assets/signin.jpg)
 >
-> 
->
-> ### :star:  홈페이지
+> ### :star: 홈페이지
 >
 > ![home](README.assets/home.jpg)
 >
-> 
->
-> ### :star:  레시피
+> ### :star: 레시피
 >
 > ![recipe](README.assets/recipe.jpg)
 >
-> 
->
-> ### :star:  레시피 서치
+> ### :star: 레시피 서치
 >
 > ![search](README.assets/search.jpg)
 >
-> 
->
-> ### :star:  레시피 디테일
+> ### :star: 레시피 디테일
 >
 > ![recipe-detail](README.assets/recipe-detail.jpg)
 >
-> 
->
-> ### :star:  유통기한 추천
+> ### :star: 유통기한 추천
 >
 > ![expired-recommend](README.assets/expired-recommend.jpg)
 
-
-
 ## 기획 산출물
 
-![와이어프레임 및 화면정의서_1](README.assets/와이어프레임 및 화면정의서_1.png)
+![와이어프레임 및 화면정의서_1](README.assets/와이어프레임 및 화면정의서\_1.png)
